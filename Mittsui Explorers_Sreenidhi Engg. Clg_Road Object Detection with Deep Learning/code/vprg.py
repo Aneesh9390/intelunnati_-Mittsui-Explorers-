@@ -1,13 +1,18 @@
+'''
+command to run the prog
+python vprg.py -v production_id.mp4 -c yolov3.cfg -w yolov3.weights -cl yolov3.txt
+'''
+
 import cv2
 import argparse
 import numpy as np
 
 ap = argparse.ArgumentParser()
 #ap.add_argument('-v', '--video', required=True, help='C:/Users/Sudhasree D/Mynotebook/intel_unnati/road_trafifc.mp4')
-ap.add_argument('-v', '--video', required=True, help='production_id_3691658.mp4')
-ap.add_argument('-c', '--config', required=True, help='yolov3.cfg')
-ap.add_argument('-w', '--weights', required=True, help='yolov3.weights')
-ap.add_argument('-cl', '--classes', required=True, help='yolov3.txt')
+ap.add_argument('-v', '--video', required=True, help='C:/Users/user/Desktop/Mittsui Explorers_Sreenidhi Engg. Clg_Road Object Detection with Deep Learning/data/road_traffic.mp4')
+ap.add_argument('-c', '--config', required=True, help='C:/Users/user/Desktop/Mittsui Explorers_Sreenidhi Engg. Clg_Road Object Detection with Deep Learning/code/yolov3.cfg')
+ap.add_argument('-w', '--weights', required=True, help='C:/Users/user/Desktop/Mittsui Explorers_Sreenidhi Engg. Clg_Road Object Detection with Deep Learning/code/yolov3.weights')
+ap.add_argument('-cl', '--classes', required=True, help='C:/Users/user/Desktop/Mittsui Explorers_Sreenidhi Engg. Clg_Road Object Detection with Deep Learning/code/yolov3.txt')
 
 args = ap.parse_args()
 
@@ -44,7 +49,8 @@ cap = cv2.VideoCapture(args.video)
 #nbtest to store the video 
 width= int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
 height= int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
-writer= cv2.VideoWriter('basicvideo.mp4', cv2.VideoWriter_fourcc(*'DIVX'), 20, (width,height))
+writer = cv2.VideoWriter('basicvideo.mp4', cv2.VideoWriter_fourcc(*'XVID'), 20, (width, height))
+
 #
 while True:
     ret, frame = cap.read()

@@ -1,3 +1,6 @@
+'''command to run in cmnd prompt 
+    python -m streamlit run final.py
+'''
 import streamlit as st
 import cv2
 import av
